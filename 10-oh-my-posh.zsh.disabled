@@ -1,0 +1,2 @@
+# 💄 Oh My Posh Setup
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/nordtron.omp.json)"
