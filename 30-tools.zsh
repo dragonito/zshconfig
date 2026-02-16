@@ -1,10 +1,9 @@
 # 🧪 Tools & Enhancements
 
-# Zoxide: smarter cd
-eval "$(zoxide init zsh)"
-cd() { z "$@"; }
-alias zi='z'
-alias zz='z -'
+# Zoxide: smarter directory jumping (keep builtin cd)
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+  alias zi='z'
+  alias zz='z -'
+fi
 
-# ZSH Syntax Highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
