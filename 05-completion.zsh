@@ -5,4 +5,5 @@ if [[ -d /opt/homebrew/share/zsh/site-functions ]]; then
 fi
 
 autoload -Uz compinit
+mkdir -p ~/.cache/zsh
 compinit -d ~/.cache/zsh/zcompdump
