@@ -8,6 +8,7 @@ else
   alias l='ls -la'
 fi
 
+alias pad='open -a "ItsyPad"'
 
 # ✍️ Dev Shortcuts
 alias vim='nvim'
