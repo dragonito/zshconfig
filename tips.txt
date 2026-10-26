@@ -1,0 +1,59 @@
+# Format:  tool :: befehl :: beschreibung
+# "tool" ist der Binary-Name – Tipps erscheinen nur, wenn das Tool installiert ist.
+# Neue Tipps einfach anhängen. Eigene Funktionen/Aliases gehören dagegen per ## in die *.zsh (→ zhelp).
+
+fzf      :: Ctrl-R                      :: History unscharf durchsuchen (ersetzt die normale Rückwärtssuche)
+fzf      :: Ctrl-T                      :: Datei auswählen und in die Kommandozeile einfügen (z.B. nach "vim ")
+fzf      :: Alt-C                       :: In Unterverzeichnis wechseln, mit Baum-Vorschau
+fzf      :: vim **<Tab>                 :: Fuzzy-Completion für Dateipfade – klappt nach fast jedem Befehl
+fzf      :: cd **<Tab>                  :: Fuzzy-Completion nur für Verzeichnisse
+fzf      :: kill -9 **<Tab>             :: Prozess per Fuzzy-Suche auswählen
+fzf      :: ssh **<Tab>                 :: Host aus ~/.ssh/config und known_hosts wählen
+fzf      :: git checkout $(git branch | fzf) :: Branch interaktiv auswählen
+
+zoxide   :: z umwelt                    :: Springt in das meistgenutzte Verzeichnis, das "umwelt" enthält
+zoxide   :: z umw src                   :: Mehrere Teilbegriffe – Reihenfolge wie im Pfad
+zoxide   :: z umw<Space><Tab>           :: Interaktive Auswahl aller Treffer per fzf
+zoxide   :: zz                          :: Zurück ins vorherige Verzeichnis (eigener Alias)
+zoxide   :: zoxide query -ls            :: Gelernte Verzeichnisse mit Score anzeigen
+
+rg       :: rg 'Pattern'                :: Rekursiv suchen, respektiert .gitignore, sehr schnell
+rg       :: rg -t php 'Pattern'         :: Nur in PHP-Dateien suchen (rg --type-list zeigt alle Typen)
+rg       :: rg -F 'App\Entity\User'     :: Literal suchen, ohne Regex-Escaping
+rg       :: rg -l 'Pattern'             :: Nur Dateinamen der Treffer ausgeben
+rg       :: rg -C 3 'Pattern'           :: 3 Zeilen Kontext um jeden Treffer
+rg       :: rg --hidden -g '!.git' 'x'  :: Auch versteckte Dateien (z.B. .env, .github) durchsuchen
+rg       :: rg -uu 'Pattern'            :: Auch ignorierte Dateien durchsuchen (vendor/, var/)
+rg       :: rg 'Pattern' -g '*.yaml'    :: Per Glob einschränken
+rg       :: rg -o -N '#\[Route\(.*\)\]' src/ :: Nur den Treffer selbst ausgeben, z.B. alle Symfony-Routen
+
+fd       :: fd Controller               :: Dateien nach Namen finden (Regex, .gitignore-aware)
+fd       :: fd -e php Repository        :: Nur bestimmte Extension
+fd       :: fd -t d migrations          :: Nur Verzeichnisse
+fd       :: fd -H .env                  :: Auch versteckte Dateien
+fd       :: fd -e php -X nvim           :: Alle Treffer auf einmal in nvim öffnen
+fd       :: fd --changed-within 1d      :: Dateien, die in den letzten 24h geändert wurden
+
+eza      :: l                           :: Liste mit Icons und Git-Status pro Datei (eigener Alias)
+eza      :: eza -T -L 2                 :: Verzeichnisbaum, 2 Ebenen tief
+eza      :: eza -l --sort=modified      :: Nach Änderungsdatum sortiert (neueste unten)
+eza      :: eza -lD                     :: Nur Verzeichnisse
+
+starship :: starship explain            :: Erklärt jedes Segment des aktuellen Prompts
+starship :: starship timings            :: Zeigt, welches Prompt-Modul bremst
+
+nvim     :: nvim +42 file.php           :: Datei direkt in Zeile 42 öffnen
+nvim     :: nvim -d a.yaml b.yaml       :: Zwei Dateien im Diff-Modus vergleichen
+
+git      :: git-gone                    :: Lokale Branches, deren Remote gelöscht wurde (eigene Funktion)
+git      :: git switch -                :: Zurück zum vorherigen Branch
+git      :: git log -S 'text' --oneline :: Commits finden, die "text" hinzugefügt/entfernt haben
+
+zsh      :: zhelp                       :: Übersicht deiner eigenen Aliases und Funktionen
+zsh      :: zcheat rg                   :: Alle Tipps zu einem Tool
+zsh      :: Esc .  (bzw. Alt-.)         :: Letztes Argument des vorherigen Befehls einfügen
+zsh      :: !!                          :: Letzten Befehl wiederholen, z.B. "sudo !!"
+
+brew     :: brew-add bat                :: Installieren UND ins Brewfile eintragen (statt brew install)
+brew     :: brew-unlisted               :: Was ist installiert, steht aber nicht im Brewfile?
+brew     :: brew-sync                   :: Neuer Mac: alles aus dem Brewfile installieren

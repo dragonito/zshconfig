@@ -15,6 +15,8 @@ fi
 
 ## Datei/Text in ItsyPad öffnen
 alias pad='open -a "ItsyPad"'
+## Datei in ItsyPad öffnen (wie pad)
+alias edit='pad'
 
 ### Dev Shortcuts
 
